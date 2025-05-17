@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все возможные комбинации</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .combinations {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 10px;
+        }
+        .combination {
+            font-size: 16px;
+            padding: 5px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Все возможные комбинации 4-значного кода</h1>
+    <div class="combinations">
+        <!-- Сюда будет вставлен список всех комбинаций -->
+        <script>
+            const digits = '1234567890';
+            let combinations = [];
+            
+            for (let i = 0; i < digits.length; i++) {
+                for (let j = 0; j < digits.length; j++) {
+                    for (let k = 0; k < digits.length; k++) {
+                        for (let l = 0; l < digits.length; l++) {
+                            combinations.push(digits[i] + digits[j] + digits[k] + digits[l]);
+                        }
+                    }
+                }
+            }
+
+            const container = document.querySelector('.combinations');
+            combinations.forEach(combo => {
+                const div = document.createElement('div');
+                div.classList.add('combination');
+                div.textContent = combo;
+                container.appendChild(div);
+            });
+        </script>
+    </div>
+</body>
+</html>
